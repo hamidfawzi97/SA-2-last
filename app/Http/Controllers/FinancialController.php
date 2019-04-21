@@ -8,7 +8,7 @@ use App\helper\TableShow;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+// use DB;
 
 class FinancialController extends Controller
 {

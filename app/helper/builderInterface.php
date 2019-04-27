@@ -13,6 +13,9 @@ interface builderInterface
 
 */
 
+public function setrole($request);
+public function getresult();
+
 public function setname($request);
 public function setage($request);
 public function setphone($request);

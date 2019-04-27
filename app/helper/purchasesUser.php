@@ -2,21 +2,21 @@
 
 namespace App\helper;
 use Illuminate\Http\Request;
-use App\Patient;
+use App\Users;
 use DB;
 class purchasesUser implements builderInterface {
 
-  private $patient;
+  private $Users;
   public function __construct(){
-    $this->patient = new Patient();
+    $this->Users = new Users();
   }
 
   public function setrole(){
-    $this->patient->Role_type = 4;
+    $this->Users->Role_type = 4;
   }
 
   public function getresult(){
-    return $this->patient;
+    return $this->Users;
   }
 
 }

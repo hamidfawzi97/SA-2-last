@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Users;
 
+use App\helper\builderClass;
 use App\helper\adminUser;
 use App\helper\normalUser;
 use App\helper\doctorUser;
@@ -46,41 +47,51 @@ class UsersController extends Controller
     public function store(Request $request)
     {
 
-        $director = new builderClass();
-
-        if($request->get('Role_type') == 1){
-            $adminUser = new adminUser();
-        }
-        if($request->get('Role_type') == 2){
-            $normalUser = new normalUser();
-        }
-        if($request->get('Role_type') == 3){
-            $doctorUser = new doctorUser();
-        }
-        if($request->get('Role_type') == 4){
-            $purchasesUser = new purchasesUser();
-        }
-        if($request->get('Role_type') == 5){
-            $repairUser = new repairUser();
-        }
-        if($request->get('Role_type') == 6){
-            $labsUser = new labsUser();
-        }
-        if($request->get('Role_type') == 7){
-            $receptionUser = new receptionUser();
-        }
-
         $this->validate($request, [
             'UserName'  => 'required',
             'Password'  => 'required',
             'Role_type' => 'required'
         ]);
 
-        $user = new Users([
-            'UserName'  => $request->get('UserName'),
-            'Password'  => $request->get('Password'),
-            'Role_type' => $request->get('Role_type')
-        ]);
+        $director = new builderClass();
+
+        if($request->get('Role_type') == 1){
+            $adminUser = new adminUser();
+            $user = $director->build($adminUser);
+        }
+        if($request->get('Role_type') == 2){
+            $normalUser = new normalUser();
+            $user = $director->build($normalUser);
+        }
+        if($request->get('Role_type') == 3){
+            $doctorUser = new doctorUser();
+            $user = $director->build($doctorUser);
+        }
+        if($request->get('Role_type') == 4){
+            $purchasesUser = new purchasesUser();
+            $user = $director->build($purchasesUser);
+        }
+        if($request->get('Role_type') == 5){
+            $repairUser = new repairUser();
+            $user = $director->build($repairUser);
+        }
+        if($request->get('Role_type') == 6){
+            $labsUser = new labsUser();
+            $user = $director->build($labsUser);
+        }
+        if($request->get('Role_type') == 7){
+            $receptionUser = new receptionUser();
+            $user = $director->build($receptionUser);
+        }
+
+        $user->UserName = $request->get('UserName');
+        $user->Password = $request->get('Password');
+
+        // $user = new Users([
+        //     'UserName'  => $request->get('UserName'),
+        //     'Password'  => $request->get('Password'),
+        //     'Role_type' => $request->get('Role_type')
+        // ]);
 
         $user->save();
 

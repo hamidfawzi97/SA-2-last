@@ -10,6 +10,7 @@ use App\visit_tooth;
 use Excel;
 use  App\Exports\PatientExport;
 use App\Exports\VisitExport;
+use App\Person\Person;
 class PatientsController extends Controller
 {
     /**
@@ -69,22 +70,9 @@ class PatientsController extends Controller
     }
 
     public function fetch(Request $request){
-        if($request->get('query')){
-            $query = $request->get('query');
-
-            $data = Patient::where('name' , 'LIKE' , '%'.$query.'%')->orWhere('phone' , 'LIKE' , '%'.$query.'%')->get();
-            $output = '';
-
-            if($data){
-                $output = '<ul class="dropdown-menu col-md-12" style="display:block; position:relative">';
-                foreach ($data as $row) {
-                    $output .= '<li><a href="'.action("PatientsController@show", $row->id).'" class="btn btn-default col-md-12">'.$row->name.'</a></li>';
-                }
-                $output .= '</ul>';
-            }
-
-            echo $output;
-        }
+      
+        $inter = new Person();
+        $inter->fetch($request);
     }
 
     /**

@@ -4,7 +4,7 @@ namespace App\helper;
 use Illuminate\Http\Request;
 use App\Users;
 use DB;
-class builderClass implements builderInterface {
+class builderClass {
 
   public function build(builderInterface $builder)
   {

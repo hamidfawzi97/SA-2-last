@@ -13,16 +13,16 @@ interface builderInterface
 
 */
 
-public function setrole($request);
+public function setrole();
 public function getresult();
 
-public function setname($request);
-public function setage($request);
-public function setphone($request);
-public function setaddress($request);
-public function setgeneral_diagnosis($request);
-public function setjob($request);
-public function setother_diseases($request);
+// public function setname($request);
+// public function setage($request);
+// public function setphone($request);
+// public function setaddress($request);
+// public function setgeneral_diagnosis($request);
+// public function setjob($request);
+// public function setother_diseases($request);
+
 
 }
-

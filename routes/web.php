@@ -63,3 +63,5 @@ Route::resource('Financial','FinancialController');
 Route::get('index', 'FinancialController@index')->name('index');
 
 Route::post('Financial/search', 'FinancialController@search');
+
+

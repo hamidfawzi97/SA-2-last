@@ -2,7 +2,7 @@
 
 namespace App\helper;
 use Illuminate\Http\Request;
-use App\Patient;
+use App\Users;
 use DB;
 class builderClass implements builderInterface {
 

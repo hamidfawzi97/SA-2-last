@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Users;
 
+use App\helper\builderClass;
 use App\helper\adminUser;
 use App\helper\normalUser;
 use App\helper\doctorUser;

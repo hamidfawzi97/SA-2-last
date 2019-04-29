@@ -10,7 +10,8 @@ use App\visit_tooth;
 use Excel;
 use  App\Exports\PatientExport;
 use App\Exports\VisitExport;
-use App\Person\Person;
+//use App\Person\Person;
+use Person;
 class PatientsController extends Controller
 {
     /**
@@ -71,8 +72,9 @@ class PatientsController extends Controller
 
     public function fetch(Request $request){
       
-        $inter = new Person();
-        $inter->fetch($request);
+       // $inter = new Person();
+       // $inter->fetch($request);
+        Person::fetch($request);
     }
 
     /**

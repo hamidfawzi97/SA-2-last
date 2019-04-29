@@ -65,3 +65,6 @@ Route::get('index', 'FinancialController@index')->name('index');
 Route::post('Financial/search', 'FinancialController@search');
 
 
+app()->bind('name', function (){
+    return new \App\Person\Person;
+});
